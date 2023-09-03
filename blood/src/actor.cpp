@@ -5346,7 +5346,7 @@ void actProcessSprites(void)
                 }
                 dy = Sin(pSprite->ang)>>16;
                 dx = Cos(pSprite->ang)>>16;
-                gVectorData[20].at9 = pXSprite->at10_0<<9;
+                gVectorData[kVectorFireTrap].at9 = pXSprite->at10_0<<9;
                 actFireVector(pSprite, 0, 0, dx, dy, Random2(0x8888), kVectorFireTrap);
             }
             break;
