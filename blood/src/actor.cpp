@@ -85,7 +85,7 @@ struct VECTORDATA {
 };
 VECTORDATA gVectorData[] = {
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         17,
         174762,
         1152,
@@ -110,7 +110,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         4,
         65536,
         0,
@@ -135,7 +135,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         7,
         21845,
         0,
@@ -160,7 +160,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         20,
         65536,
         0,
@@ -185,7 +185,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         6,
         87381,
         0,
@@ -210,7 +210,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         12,
         65536,
         0,
@@ -235,7 +235,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         4,
         0,
         921,
@@ -260,7 +260,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         12,
         0,
         1177,
@@ -285,7 +285,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         9,
         0,
         1177,
@@ -310,7 +310,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_3,
+        kDamageExplode,
         50,
         43690,
         1024,
@@ -335,7 +335,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         18,
         436906,
         1024,
@@ -360,7 +360,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         9,
         218453,
         1024,
@@ -385,7 +385,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         20,
         436906,
         1024,
@@ -410,7 +410,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         16,
         218453,
         1024,
@@ -435,7 +435,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_5, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         19,
         218453,
         614,
@@ -460,7 +460,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         10,
         218453,
         614,
@@ -485,7 +485,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         4,
         0,
         921,
@@ -510,7 +510,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         8,
         0,
         614,
@@ -535,7 +535,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_2,
+        kDamageBullet,
         9,
         0,
         512,
@@ -585,7 +585,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_1,
+        kDamageBurn,
         2,
         0,
         0,
@@ -610,7 +610,7 @@ VECTORDATA gVectorData[] = {
         FX_NONE, FX_NONE, FX_NONE, -1,
     },
     {
-        DAMAGE_TYPE_5,
+        kDamageSpirit,
         25,
         0,
         0,
@@ -2441,7 +2441,7 @@ void ConcussSprite(int a1, SPRITE *pSprite, int x, int y, int z, int a6)
         yvel[nSprite] += dy;
         zvel[nSprite] += dz;
     }
-    actDamageSprite(a1, pSprite, DAMAGE_TYPE_3, a6);
+    actDamageSprite(a1, pSprite, kDamageExplode, a6);
 }
 
 int actWallBounceVector(long *x, long *y, int nWall, int a4)
@@ -2569,7 +2569,7 @@ void func_2AA94(SPRITE *pSprite, XSPRITE *pXSprite)
     if (Chance(0x8000))
         pSprite->cstat |= 4;
     sfxPlay3DSound(pSprite, 303, 24+(pSprite->index&3), 1);
-    func_2A620(nSprite, pSprite->x, pSprite->y, pSprite->z, pSprite->sectnum, 128, 0, 60, DAMAGE_TYPE_3, 15, 120);
+    func_2A620(nSprite, pSprite->x, pSprite->y, pSprite->z, pSprite->sectnum, 128, 0, 60, kDamageExplode, 15, 120);
     if (pXSprite->at18_2 > 1)
     {
         GibSprite(pSprite, GIBTYPE_5);
@@ -2765,7 +2765,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
     case 202:
     case 247:
     case 248:
-        if (a3 == DAMAGE_TYPE_1 && pXSprite->at17_6 == 0)
+        if (a3 == kDamageBurn && pXSprite->at17_6 == 0)
         {
             pSprite->type = 240;
             aiNewState(pSprite, pXSprite, &cultistBurnGoto);
@@ -2774,7 +2774,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
         }
         // no break
     case 251:
-        if (a3 == DAMAGE_TYPE_1 && pXSprite->at17_6 == 0)
+        if (a3 == kDamageBurn && pXSprite->at17_6 == 0)
         {
             pSprite->type = 253;
             aiNewState(pSprite, pXSprite, &beastBurnGoto);
@@ -2783,7 +2783,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
         }
         // no break
     case 245:
-        if (a3 == DAMAGE_TYPE_1 && pXSprite->at17_6 == 0)
+        if (a3 == kDamageBurn && pXSprite->at17_6 == 0)
         {
             pSprite->type = 239;
             aiNewState(pSprite, pXSprite, &innocentBurnGoto);
@@ -2831,7 +2831,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
     int nSeq;
     switch (a3)
     {
-    case DAMAGE_TYPE_3:
+    case kDamageExplode:
         nSeq = 2;
         switch (pSprite->type)
         {
@@ -2851,11 +2851,11 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
             break;
         }
         break;
-    case DAMAGE_TYPE_1:
+    case kDamageBurn:
         nSeq = 3;
         sfxPlay3DSound(pSprite, 351);
         break;
-    case DAMAGE_TYPE_5:
+    case kDamageSpirit:
         switch (pSprite->type)
         {
         case 203:
@@ -2870,7 +2870,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
             break;
         }
         break;
-    case DAMAGE_TYPE_0:
+    case kDamageFall:
         switch (pSprite->type)
         {
         case 201:
@@ -2940,7 +2940,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
             sfxPlay3DSound(pSprite, 718);
         else
             sfxPlay3DSound(pSprite, 1018+Random(2));
-        a3 = DAMAGE_TYPE_3;
+        a3 = kDamageExplode;
         if (Chance(0x8000))
         {
             for (int i = 0; i < 3; i++)
@@ -2959,7 +2959,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
             sfxPlay3DSound(pSprite, 1109);
         else
             sfxPlay3DSound(pSprite, 1107+Random(2));
-        a3 = DAMAGE_TYPE_3;
+        a3 = kDamageExplode;
         if (Chance(0x8000))
         {
             seqSpawn(dudeInfo[nType].seqStartID+13, 3, nXSprite, nDudeToGibClient1);
@@ -2980,7 +2980,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
         seqSpawn(dudeInfo[4].seqStartID+10, 3, nXSprite);
         break;
     case 239:
-        a3 = DAMAGE_TYPE_3;
+        a3 = kDamageExplode;
         seqSpawn(dudeInfo[nType].seqStartID+7, 3, nXSprite, nDudeToGibClient1);
         break;
     case 204:
@@ -3165,7 +3165,7 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
         seqSpawn(dudeInfo[nType].seqStartID+nSeq, 3, nXSprite);
         break;
     case 252:
-        a3 = DAMAGE_TYPE_3;
+        a3 = kDamageExplode;
         seqSpawn(dudeInfo[nType].seqStartID+11, 3, nXSprite, nDudeToGibClient1);
         break;
     case 251:
@@ -3173,14 +3173,14 @@ void actKillDude(int a1, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
         seqSpawn(dudeInfo[nType].seqStartID+nSeq, 3, nXSprite, nSeq == 3 ? nDudeToGibClient2 : nDudeToGibClient1);
         break;
     case 253:
-        a3 = DAMAGE_TYPE_3;
+        a3 = kDamageExplode;
         seqSpawn(dudeInfo[nType].seqStartID+12, 3, nXSprite, nDudeToGibClient1);
         break;
     default:
         seqSpawn(dudeInfo[nType].seqStartID+nSeq, 3, nXSprite);
         break;
     }
-    if (a3 == DAMAGE_TYPE_3)
+    if (a3 == kDamageExplode)
     {
         pDudeInfo = &dudeInfo[pSprite->type-kDudeBase];
         //DUDEINFO *pDudeInfo = &dudeInfo[pSprite->type-kDudeBase];
@@ -3239,8 +3239,8 @@ int actDamageSprite(int nSource, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
             a4 = aiDamageSprite(pSprite, pXSprite, nSource, a3, a4);
             if (!pXSprite->health)
             {
-                if (a3 == DAMAGE_TYPE_3 && a4 < 160)
-                    a3 = DAMAGE_TYPE_0;
+                if (a3 == kDamageExplode && a4 < 160)
+                    a3 = kDamageFall;
                 actKillDude(nSource, pSprite, a3, a4);
             }
         }
@@ -3284,7 +3284,7 @@ int actDamageSprite(int nSource, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
             case 425:
             case 426:
             case 427:
-                if (a3 == DAMAGE_TYPE_3 && pSourcePlayer && gFrameClock > pSourcePlayer->at312 && Chance(0x4000))
+                if (a3 == kDamageExplode && pSourcePlayer && gFrameClock > pSourcePlayer->at312 && Chance(0x4000))
                 {
                     sfxPlay3DSound(pSourcePlayer->pSprite, gPlayerGibThingComments[Random(10)], 0, 2);
                     pSourcePlayer->at312 = gFrameClock+3600;
@@ -3432,7 +3432,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             int nOwner = actSpriteOwnerToSpriteId(pMissile);
             DAMAGE_TYPE rand1 = (DAMAGE_TYPE)Random(7);
             actDamageSprite(nOwner, pSpriteHit, rand1, (7+Random(7))<<4);
-            if ((pThingInfo && pThingInfo->at17[DAMAGE_TYPE_1] != 0) || (pDudeInfo && pDudeInfo->at70[DAMAGE_TYPE_1] != 0))
+            if ((pThingInfo && pThingInfo->at17[kDamageBurn] != 0) || (pDudeInfo && pDudeInfo->at70[kDamageBurn] != 0))
                 actBurnSprite(pMissile->owner, pXSpriteHit, 360);
         }
         if (pMissile->extra > 0)
@@ -3484,7 +3484,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             if (pThingInfo || pDudeInfo)
             {
                 int nOwner = actSpriteOwnerToSpriteId(pMissile);
-                actDamageSprite(nOwner, pSpriteHit, DAMAGE_TYPE_2, (15+Random(7))<<4);
+                actDamageSprite(nOwner, pSpriteHit, kDamageBullet, (15+Random(7))<<4);
             }
         }
         actPostSprite(pMissile->index, 1024);
@@ -3498,7 +3498,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             if (pThingInfo || pDudeInfo)
             {
                 int nOwner = actSpriteOwnerToSpriteId(pMissile);
-                actDamageSprite(nOwner, pSpriteHit, DAMAGE_TYPE_5, (25+Random(20))<<4);
+                actDamageSprite(nOwner, pSpriteHit, kDamageSpirit, (25+Random(20))<<4);
             }
         }
         actPostSprite(pMissile->index, 1024);
@@ -3520,7 +3520,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
                 nDmgMul = 3;
                 if (pMissile->type == 317)
                     nDmgMul = 6;
-                actDamageSprite(nOwner, pSpriteHit, DAMAGE_TYPE_5, (nDmgMul+Random(nDmgMul))<<4);
+                actDamageSprite(nOwner, pSpriteHit, kDamageSpirit, (nDmgMul+Random(nDmgMul))<<4);
             }
         }
         actPostSprite(pMissile->index, 1024);
@@ -3532,7 +3532,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             if (pThingInfo && pSpriteHit->type == 400 && actGetBurnTime(pXSpriteHit) == 0)
                 evPost(nSpriteHit, 3, 0, CALLBACK_ID_0);
             int nOwner = actSpriteOwnerToSpriteId(pMissile);
-            actDamageSprite(nOwner, pSpriteHit, DAMAGE_TYPE_2, (50+Random(50))<<4);
+            actDamageSprite(nOwner, pSpriteHit, kDamageBullet, (50+Random(50))<<4);
         }
         actExplodeSprite(pMissile);
         break;
@@ -3550,16 +3550,16 @@ void actImpactMissile(SPRITE *pMissile, int a2)
                     if (pThingInfo || pDudeInfo)
                     {
                         int nOwner = actSpriteOwnerToSpriteId(pMissile);
-                        if ((pThingInfo && pThingInfo->at17[DAMAGE_TYPE_1] != 0) || (pDudeInfo && pDudeInfo->at70[DAMAGE_TYPE_1] != 0))
+                        if ((pThingInfo && pThingInfo->at17[kDamageBurn] != 0) || (pDudeInfo && pDudeInfo->at70[kDamageBurn] != 0))
                         {
                             if (pThingInfo && pSpriteHit->type == 400 && actGetBurnTime(pXSpriteHit) == 0)
                                 evPost(nSpriteHit, 3, 0, CALLBACK_ID_0);
                             actBurnSprite(pMissile->owner, pXSpriteHit, 480);
-                            func_2A620(nOwner, pMissile->x, pMissile->y, pMissile->z, pMissile->sectnum, 16, 20, 10, DAMAGE_TYPE_2, 6, 480);
+                            func_2A620(nOwner, pMissile->x, pMissile->y, pMissile->z, pMissile->sectnum, 16, 20, 10, kDamageBullet, 6, 480);
                         }
                         else
                         {
-                            actDamageSprite(nOwner, pSpriteHit, DAMAGE_TYPE_2, (20+Random(10))<<4);
+                            actDamageSprite(nOwner, pSpriteHit, kDamageBullet, (20+Random(10))<<4);
                         }
                     }
                     if (surfType[pSpriteHit->picnum] == 4)
@@ -3594,7 +3594,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
                     evPost(nObject, 3, 0, CALLBACK_ID_0);
                 int nOwner = actSpriteOwnerToSpriteId(pMissile);
                 actBurnSprite(pMissile->owner, pXObject, (4+gGameOptions.nDifficulty)<<2);
-                actDamageSprite(nOwner, pObject, DAMAGE_TYPE_1, 8);
+                actDamageSprite(nOwner, pObject, kDamageBurn, 8);
             }
         }
         break;
@@ -3612,8 +3612,8 @@ void actImpactMissile(SPRITE *pMissile, int a2)
                     evPost(nObject, 3, 0, CALLBACK_ID_0);
                 int nOwner = actSpriteOwnerToSpriteId(pMissile);
                 actBurnSprite(pMissile->owner, pXObject, (4+gGameOptions.nDifficulty)<<2);
-                actDamageSprite(nOwner, pObject, DAMAGE_TYPE_1, 8);
-                actDamageSprite(nOwner, pObject, DAMAGE_TYPE_2, (25+Random(10))<<4);
+                actDamageSprite(nOwner, pObject, kDamageBurn, 8);
+                actDamageSprite(nOwner, pObject, kDamageBullet, (25+Random(10))<<4);
             }
         }
         actExplodeSprite(pMissile);
@@ -3632,8 +3632,8 @@ void actImpactMissile(SPRITE *pMissile, int a2)
                     evPost(nObject, 3, 0, CALLBACK_ID_0);
                 int nOwner = actSpriteOwnerToSpriteId(pMissile);
                 actBurnSprite(pMissile->owner, pXObject, 32);
-                actDamageSprite(nOwner, pObject, DAMAGE_TYPE_5, 12);
-                actDamageSprite(nOwner, pObject, DAMAGE_TYPE_2, (25+Random(10))<<4);
+                actDamageSprite(nOwner, pObject, kDamageSpirit, 12);
+                actDamageSprite(nOwner, pObject, kDamageBullet, (25+Random(10))<<4);
             }
         }
         actExplodeSprite(pMissile);
@@ -3651,7 +3651,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             if (pObject->statnum == 6)
             {
                 int nOwner = actSpriteOwnerToSpriteId(pMissile);
-                actDamageSprite(nOwner, pObject, DAMAGE_TYPE_5, (25+Random(10))<<4);
+                actDamageSprite(nOwner, pObject, kDamageSpirit, (25+Random(10))<<4);
             }
         }
         break;
@@ -3668,7 +3668,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             if (pObject->statnum == 6)
             {
                 int nOwner = actSpriteOwnerToSpriteId(pMissile);
-                actDamageSprite(nOwner, pObject, DAMAGE_TYPE_5, (10+Random(10))<<4);
+                actDamageSprite(nOwner, pObject, kDamageSpirit, (10+Random(10))<<4);
                 SPRITE *pOwner = &sprite[nOwner];
                 XSPRITE *pXOwner = &xsprite[pOwner->extra];
                 int nType = pOwner->type-kDudeBase;
@@ -3693,7 +3693,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             dassert(nObject >= 0 && nObject < kMaxSprites, 3955);
             SPRITE *pObject = &sprite[nObject];
             int nOwner = actSpriteOwnerToSpriteId(pMissile);
-            actDamageSprite(nOwner, pObject, DAMAGE_TYPE_6, (15+Random(10))<<4);
+            actDamageSprite(nOwner, pObject, kDamageTesla, (15+Random(10))<<4);
         }
         break;
     case 310:
@@ -3706,7 +3706,7 @@ void actImpactMissile(SPRITE *pMissile, int a2)
             dassert(nObject >= 0 && nObject < kMaxSprites, 3969);
             SPRITE *pObject = &sprite[nObject];
             int nOwner = actSpriteOwnerToSpriteId(pMissile);
-            actDamageSprite(nOwner, pObject, DAMAGE_TYPE_0, (10+Random(10))<<4);
+            actDamageSprite(nOwner, pObject, kDamageFall, (10+Random(10))<<4);
         }
         break;
     }
@@ -3749,7 +3749,7 @@ void actTouchFloor(SPRITE *pSprite, int nSector)
     }
     if (tileGetSurfType(nSector+0x4000) == 14)
     {
-        actDamageSprite(pSprite->index, pSprite, DAMAGE_TYPE_1, 16);
+        actDamageSprite(pSprite->index, pSprite, kDamageBurn, 16);
         sfxPlay3DSound(pSprite, 352, 5, 2);
     }
 }
@@ -3790,17 +3790,17 @@ void ProcessTouchObjects(SPRITE *pSprite, int nXSprite)
                     yvel[pSprite2->index] += mulscale(4, pSprite2->y-sprite[nSprite].y, 2);
                     //if (pSprite2->type == 229)
                     //    if (!IsPlayerSprite(pSprite) || !gPlayer[pSprite->type-kDudePlayer1].at31a)
-                    //        actDamageSprite(pSprite2->index, pSprite, DAMAGE_TYPE_3, pXSprite->health<<2);
+                    //        actDamageSprite(pSprite2->index, pSprite, kDamageExplode, pXSprite->health<<2);
                     if (pSprite2->type == 229)
                     {
                         if (IsPlayerSprite(pSprite))
                         {
                             PLAYER *pPlayer = &gPlayer[pSprite->type-kDudePlayer1];
                             if (!pPlayer->at31a)
-                                actDamageSprite(pSprite2->index, pSprite, DAMAGE_TYPE_3, pXSprite->health<<2);
+                                actDamageSprite(pSprite2->index, pSprite, kDamageExplode, pXSprite->health<<2);
                         }
                         else
-                            actDamageSprite(pSprite2->index, pSprite, DAMAGE_TYPE_3, pXSprite->health<<2);
+                            actDamageSprite(pSprite2->index, pSprite, kDamageExplode, pXSprite->health<<2);
                     }
                 }
             }
@@ -3812,10 +3812,10 @@ void ProcessTouchObjects(SPRITE *pSprite, int nXSprite)
                 {
                     pXSprite2->at10_0 = 1;
                     pXSprite2->at12_0 = ClipHigh(pXSprite2->at12_0+8, 600);
-                    actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_2, 16);
+                    actDamageSprite(nSprite, pSprite, kDamageBullet, 16);
                 }
                 else
-                    actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_2, 1);
+                    actDamageSprite(nSprite, pSprite, kDamageBullet, 1);
                 break;
             }
         }
@@ -3840,14 +3840,14 @@ void ProcessTouchObjects(SPRITE *pSprite, int nXSprite)
             case 427:
                 sfxPlay3DSound(pSprite->x, pSprite->y, pSprite->z, 357, pSprite->sectnum);
                 actKickObject(pSprite, pSprite2);
-                actDamageSprite(-1, pSprite2, DAMAGE_TYPE_0, 80);
+                actDamageSprite(-1, pSprite2, kDamageFall, 80);
                 break;
             case 239:
             case 240:
             case 241:
             case 242:
                 pXSprite->at2c_0 = ClipLow(pXSprite->at2c_0-4, 0);
-                actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, DAMAGE_TYPE_1, 8);
+                actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, kDamageBurn, 8);
                 break;
             }
         }
@@ -3891,17 +3891,17 @@ void ProcessTouchObjects(SPRITE *pSprite, int nXSprite)
                 }
                 actKickObject(pSprite, pSprite2);
                 sfxPlay3DSound(pSprite->x, pSprite->y, pSprite->z, 357, pSprite->sectnum);
-                actDamageSprite(-1, pSprite2, DAMAGE_TYPE_0, 80);
+                actDamageSprite(-1, pSprite2, kDamageFall, 80);
                 break;
             case 454:
                 if (pXSprite2->at1_6)
                 {
                     pXSprite2->at10_0 = 1;
                     pXSprite2->at12_0 = ClipHigh(pXSprite2->at12_0+8, 600);
-                    actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_2, 16);
+                    actDamageSprite(nSprite, pSprite, kDamageBullet, 16);
                 }
                 else
-                    actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_2, 1);
+                    actDamageSprite(nSprite, pSprite, kDamageBullet, 1);
                 break;
             case 201:
             case 202:
@@ -3937,7 +3937,7 @@ void ProcessTouchObjects(SPRITE *pSprite, int nXSprite)
             case 237:
             case 238:
                 if (pPlayer)
-                    actDamageSprite(nSprite, pSprite2,DAMAGE_TYPE_2, 8);
+                    actDamageSprite(nSprite, pSprite2,kDamageBullet, 8);
                 break;
             }
         }
@@ -4010,7 +4010,7 @@ static int MoveThing(SPRITE *pSprite)
                 {
                 case kThing427:
                     sfxPlay3DSound(pSprite, 607, 0, 0);
-                    actDamageSprite(-1, pSprite, DAMAGE_TYPE_0, 80);
+                    actDamageSprite(-1, pSprite, kDamageFall, 80);
                     break;
                 case kThing415:
                     sfxPlay3DSound(pSprite, 374, 0, 0);
@@ -4092,7 +4092,7 @@ static int MoveThing(SPRITE *pSprite)
             nDamage = mulscale(nDamage, nDamage, 30);
             nDamage -= pThingInfo->atb;
             if (nDamage > 0)
-                actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_0, nDamage);
+                actDamageSprite(nSprite, pSprite, kDamageFall, nDamage);
             zvel[nSprite] = v20;
             if (velFloor[pSprite->sectnum] == 0 && klabs(zvel[nSprite]) < 0x10000)
             {
@@ -4109,7 +4109,7 @@ static int MoveThing(SPRITE *pSprite)
                 if (klabs(zvel[nSprite]) > 0x80000)
                 {
                     sfxPlay3DSound(pSprite, 607, 0, 0);
-                    actDamageSprite(-1, pSprite, DAMAGE_TYPE_0, 80);
+                    actDamageSprite(-1, pSprite, kDamageFall, 80);
                 }
                 break;
             case kThing415:
@@ -4143,7 +4143,7 @@ static int MoveThing(SPRITE *pSprite)
                 if (klabs(zvel[nSprite]) > 0x80000)
                 {
                     sfxPlay3DSound(pSprite, 607, 0, 0);
-                    actDamageSprite(-1, pSprite, DAMAGE_TYPE_0, 80);
+                    actDamageSprite(-1, pSprite, kDamageFall, 80);
                 }
                 break;
             case kThing415:
@@ -4222,14 +4222,14 @@ static void MoveDude(SPRITE *pSprite)
             {
                 nSector = pSprite->sectnum;
                 if (pSprite->statnum == 6 || pSprite->statnum == 4)
-                    actDamageSprite(pSprite->index, pSprite, DAMAGE_TYPE_0, 1000<<4);
+                    actDamageSprite(pSprite->index, pSprite, kDamageFall, 1000<<4);
             }
                     
             if (sector[nSector].type >= kSectorType612 && sector[nSector].type <= kSectorType617)
             {
                 short nSector2 = nSector;
                 if (pushmove(&pSprite->x, &pSprite->y, &pSprite->z, &nSector2, clipdist, var5c, var28, 0x10001) == -1)
-                    actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_0, 1000<<4);
+                    actDamageSprite(nSprite, pSprite, kDamageFall, 1000<<4);
                 if (nSector2 != -1)
                     nSector = nSector2;
             }
@@ -4438,7 +4438,7 @@ static void MoveDude(SPRITE *pSprite)
                     pSprite->flags |= 6;
                     break;
                 case 218:
-                    actKillDude(pSprite->index, pSprite, DAMAGE_TYPE_0, 1000<<4);
+                    actKillDude(pSprite->index, pSprite, kDamageFall, 1000<<4);
                     break;
                 }
             }
@@ -4509,7 +4509,7 @@ static void MoveDude(SPRITE *pSprite)
                 case 219:
                 case 220:
                 case 239:
-                    actKillDude(pSprite->index, pSprite, DAMAGE_TYPE_0, 1000<<4);
+                    actKillDude(pSprite->index, pSprite, kDamageFall, 1000<<4);
                     break;
                 }
             }
@@ -4580,7 +4580,7 @@ static void MoveDude(SPRITE *pSprite)
                 case 219:
                 case 220:
                 case 239:
-                    actKillDude(pSprite->index, pSprite, DAMAGE_TYPE_0, 1000<<4);
+                    actKillDude(pSprite->index, pSprite, kDamageFall, 1000<<4);
                     break;
                 }
             }
@@ -4617,7 +4617,7 @@ static void MoveDude(SPRITE *pSprite)
             }
             nDamage -= 100<<4;
             if (nDamage > 0)
-                actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_0, nDamage);
+                actDamageSprite(nSprite, pSprite, kDamageFall, nDamage);
             zvel[nSprite] = var44;
             if (klabs(var44) < 0x10000)
             {
@@ -5037,7 +5037,7 @@ void actProcessSprites(void)
             if (pXSprite->at2c_0 > 0)
             {
                 pXSprite->at2c_0 = ClipLow(pXSprite->at2c_0-4,0);
-                actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, DAMAGE_TYPE_1, 8);
+                actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, kDamageBurn, 8);
             }
             if (pXSprite->ate_4)
             {
@@ -5170,13 +5170,13 @@ void actProcessSprites(void)
                                 int nObject = hit & 0x1fff;
                                 dassert(nObject >= 0 && nObject < kMaxSprites, 5970);
                                 SPRITE *pObject = &sprite[nObject];
-                                actDamageSprite(actSpriteOwnerToSpriteId(pSprite), pObject, DAMAGE_TYPE_0, 12);
+                                actDamageSprite(actSpriteOwnerToSpriteId(pSprite), pObject, kDamageFall, 12);
                             }
                             break;
                         case 430:
                             if ((hit&0xe000) == 0x4000)
                             {
-                                func_2A620(actSpriteOwnerToSpriteId(pSprite), pSprite->x, pSprite->y, pSprite->z, pSprite->sectnum, 200, 1, 20, DAMAGE_TYPE_3, 6, 0);
+                                func_2A620(actSpriteOwnerToSpriteId(pSprite), pSprite->x, pSprite->y, pSprite->z, pSprite->sectnum, 200, 1, 20, kDamageExplode, 6, 0);
                                 evPost(pSprite->index, 3, 0, CALLBACK_ID_19);
                             }
                             else
@@ -5184,7 +5184,7 @@ void actProcessSprites(void)
                                 int nObject = hit & 0x1fff;
                                 dassert(nObject >= 0 && nObject < kMaxSprites, 6000);
                                 SPRITE *pObject = &sprite[nObject];
-                                actDamageSprite(actSpriteOwnerToSpriteId(pSprite), pObject, DAMAGE_TYPE_0, 12);
+                                actDamageSprite(actSpriteOwnerToSpriteId(pSprite), pObject, kDamageFall, 12);
                                 evPost(pSprite->index, 3, 0, CALLBACK_ID_19);
                             }
                             break;
@@ -5252,7 +5252,7 @@ void actProcessSprites(void)
                     if (pExplodeInfo->at1 && pXSprite->target == 0)
                     {
                         pXSprite->target = 1;
-                        actDamageSprite(nOwner, pDude, DAMAGE_TYPE_0, (pExplodeInfo->at1+Random(pExplodeInfo->at2))<<4);
+                        actDamageSprite(nOwner, pDude, kDamageFall, (pExplodeInfo->at1+Random(pExplodeInfo->at2))<<4);
                     }
                     if (pExplodeInfo->at7)
                         ConcussSprite(nOwner, pDude, x, y, z, pExplodeInfo->at7);
@@ -5369,11 +5369,11 @@ void actProcessSprites(void)
                 case 240:
                 case 241:
                 case 242:
-                    actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, DAMAGE_TYPE_1, 8);
+                    actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, kDamageBurn, 8);
                     break;
                 default:
                     pXSprite->at2c_0 = ClipLow(pXSprite->at2c_0-4, 0);
-                    actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, DAMAGE_TYPE_1, 8);
+                    actDamageSprite(actOwnerIdToSpriteId(pXSprite->at2e_0), pSprite, kDamageBurn, 8);
                     break;
                 }
             }
@@ -5411,7 +5411,7 @@ void actProcessSprites(void)
                 if (pPlayer->at34e)
                     func_41250(pPlayer);
                 if (pPlayer->at376 && Chance(0x8000))
-                    actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_4, 12);
+                    actDamageSprite(nSprite, pSprite, kDamageDrown, 12);
                 if (pPlayer->at87)
                 {
                     BOOL bActive = packItemActive(pPlayer, 1);
@@ -5425,7 +5425,7 @@ void actProcessSprites(void)
                     {
                         pPlayer->at36e += 4;
                         if (Chance(pPlayer->at36e))
-                            actDamageSprite(nSprite, pSprite, DAMAGE_TYPE_4, 3<<4);
+                            actDamageSprite(nSprite, pSprite, kDamageDrown, 3<<4);
                     }
                     else
                         pPlayer->at36e = 0;

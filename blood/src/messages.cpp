@@ -641,7 +641,7 @@ void CCheatMgr::Process(CCheatMgr::CHEATCODE nCheatCode, char *pzArgs)
         SetWeapons(1);
         break;
     case kCheat9:
-        actDamageSprite(gMe->at5b, gMe->pSprite, DAMAGE_TYPE_2, 8000);
+        actDamageSprite(gMe->at5b, gMe->pSprite, kDamageBullet, 8000);
         viewSetMessage("Kevorkian approves.");
         break;
     case kCheat10:
@@ -654,7 +654,7 @@ void CCheatMgr::Process(CCheatMgr::CHEATCODE nCheatCode, char *pzArgs)
         break;
     }
     case kCheat11:
-        actDamageSprite(gMe->at5b, gMe->pSprite, DAMAGE_TYPE_3, 8000);
+        actDamageSprite(gMe->at5b, gMe->pSprite, kDamageExplode, 8000);
         viewSetMessage("Ahhh...those were the days.");
         break;
     case kCheat12:

@@ -23,13 +23,13 @@
 #include "misc.h"
 
 enum DAMAGE_TYPE {
-    DAMAGE_TYPE_0,
-    DAMAGE_TYPE_1,
-    DAMAGE_TYPE_2,
-    DAMAGE_TYPE_3,
-    DAMAGE_TYPE_4,
-    DAMAGE_TYPE_5,
-    DAMAGE_TYPE_6,
+    kDamageFall,
+    kDamageBurn,
+    kDamageBullet,
+    kDamageExplode,
+    kDamageDrown,
+    kDamageSpirit,
+    kDamageTesla,
     kDamageMax
 };
 

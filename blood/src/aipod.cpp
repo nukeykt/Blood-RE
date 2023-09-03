@@ -134,12 +134,12 @@ static void func_70284(int, int nXSprite)
     case 222:
     default:
         nBurn = 0;
-        dmgType = DAMAGE_TYPE_2;
+        dmgType = kDamageBullet;
         nDist = 50;
         break;
     case 224:
         nBurn = (gGameOptions.nDifficulty*120)>>2;
-        dmgType = DAMAGE_TYPE_3;
+        dmgType = kDamageExplode;
         nDist = 75;
         break;
     }

@@ -896,7 +896,7 @@ int aiDamageSprite(SPRITE *pSprite, XSPRITE *pXSprite, int nSource, DAMAGE_TYPE 
                 aiActivateDude(pSprite, pXSprite);
             }
         }
-        if (nDmgType == DAMAGE_TYPE_6)
+        if (nDmgType == kDamageTesla)
         {
             DUDEEXTRA *pDudeExtra = &gDudeExtra[pSprite->extra];
             pDudeExtra->at4 = 1;
@@ -907,7 +907,7 @@ int aiDamageSprite(SPRITE *pSprite, XSPRITE *pXSprite, int nSource, DAMAGE_TYPE 
         case 202:
         case 247:
         case 248:
-            if (nDmgType != DAMAGE_TYPE_1)
+            if (nDmgType != kDamageBurn)
             {
                 if (!aiSeqPlaying(pSprite, 14) && pXSprite->at17_6 == 0)
                     aiNewState(pSprite, pXSprite, &cultistDodge);
@@ -916,7 +916,7 @@ int aiDamageSprite(SPRITE *pSprite, XSPRITE *pXSprite, int nSource, DAMAGE_TYPE 
                 else if (aiSeqPlaying(pSprite, 13) && (pXSprite->at17_6 == 1 || pXSprite->at17_6 == 2))
                     aiNewState(pSprite, pXSprite, &cultistSwimDodge);
             }
-            else if (nDmgType == DAMAGE_TYPE_1 && pXSprite->health <= (unsigned int)pDudeInfo->at23 && (pXSprite->at17_6 != 1 || pXSprite->at17_6 != 2))
+            else if (nDmgType == kDamageBurn && pXSprite->health <= (unsigned int)pDudeInfo->at23 && (pXSprite->at17_6 != 1 || pXSprite->at17_6 != 2))
             {
                 pSprite->type = 240;
                 aiNewState(pSprite, pXSprite, &cultistBurnGoto);
@@ -928,7 +928,7 @@ int aiDamageSprite(SPRITE *pSprite, XSPRITE *pXSprite, int nSource, DAMAGE_TYPE 
             }
             break;
         case 245:
-            if (nDmgType == DAMAGE_TYPE_1 && pXSprite->health <= (unsigned int)pDudeInfo->at23 && (pXSprite->at17_6 != 1 || pXSprite->at17_6 != 2))
+            if (nDmgType == kDamageBurn && pXSprite->health <= (unsigned int)pDudeInfo->at23 && (pXSprite->at17_6 != 1 || pXSprite->at17_6 != 2))
             {
                 pSprite->type = 239;
                 aiNewState(pSprite, pXSprite, &cultistBurnGoto);
@@ -961,7 +961,7 @@ int aiDamageSprite(SPRITE *pSprite, XSPRITE *pXSprite, int nSource, DAMAGE_TYPE 
             aiNewState(pSprite, pXSprite, &gargoyleFChase);
             break;
         case 204:
-            if (nDmgType == DAMAGE_TYPE_1 && pXSprite->health <= (unsigned int)pDudeInfo->at23)
+            if (nDmgType == kDamageBurn && pXSprite->health <= (unsigned int)pDudeInfo->at23)
             {
                 aiPlay3DSound(pSprite, 361, AI_SFX_PRIORITY_0, -1);
                 aiPlay3DSound(pSprite, 1202, AI_SFX_PRIORITY_2, -1);
@@ -972,7 +972,7 @@ int aiDamageSprite(SPRITE *pSprite, XSPRITE *pXSprite, int nSource, DAMAGE_TYPE 
             }
             break;
         case 250:
-            if (nDmgType == DAMAGE_TYPE_1 && pXSprite->health <= (unsigned int)pDudeInfo->at23 && (pXSprite->at17_6 != 1 || pXSprite->at17_6 != 2))
+            if (nDmgType == kDamageBurn && pXSprite->health <= (unsigned int)pDudeInfo->at23 && (pXSprite->at17_6 != 1 || pXSprite->at17_6 != 2))
             {
                 pSprite->type = 239;
                 aiNewState(pSprite, pXSprite, &cultistBurnGoto);
@@ -993,7 +993,7 @@ int aiDamageSprite(SPRITE *pSprite, XSPRITE *pXSprite, int nSource, DAMAGE_TYPE 
             break;
         case 203:
         case 205:
-            if (nDmgType == DAMAGE_TYPE_1 && pXSprite->health <= (unsigned int)pDudeInfo->at23)
+            if (nDmgType == kDamageBurn && pXSprite->health <= (unsigned int)pDudeInfo->at23)
             {
                 aiPlay3DSound(pSprite, 361, AI_SFX_PRIORITY_0, -1);
                 aiPlay3DSound(pSprite, 1106, AI_SFX_PRIORITY_2, -1);

@@ -631,7 +631,7 @@ static void func_76B78(int nSprite)
                         t += ((3200-pPlayer2->at33e[2])<<15)/3200;
                     if (Chance(t) || nNextSprite < 0)
                     {
-                        int nDmg = actDamageSprite(nOwner, pSprite2, DAMAGE_TYPE_5, pXSprite->at10_0<<4);
+                        int nDmg = actDamageSprite(nOwner, pSprite2, kDamageSpirit, pXSprite->at10_0<<4);
                         pXSprite->at10_0 = ClipLow(pXSprite->at10_0-nDmg, 0);
                         func_76A08(pSprite2, pSprite, pPlayer2);
                         evPost(nSprite, 3, 0, CALLBACK_ID_1);
