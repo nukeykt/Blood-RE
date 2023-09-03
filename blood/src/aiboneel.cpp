@@ -79,7 +79,7 @@ static void BiteSeqCallback(int, int nXSprite)
     int height2 = (pTarget->yrepeat*pDudeInfoT->atb)<<2;
     dassert(pXSprite->target >= 0 && pXSprite->target < kMaxSprites, 126);
     dz = height2 - height;
-    actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_7);
+    actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorEelBite);
 }
 
 static void thinkTarget(SPRITE *pSprite, XSPRITE *pXSprite)

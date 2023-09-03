@@ -54,7 +54,7 @@ static void BiteSeqCallback(int, int nXSprite)
     dassert(pXSprite->target >= 0 && pXSprite->target < kMaxSprites, 91);
     SPRITE *pTarget = &sprite[pXSprite->target];
     if (IsPlayerSprite(pTarget))
-        actFireVector(pSprite, 0, 0, dx, dy, pTarget->z-pSprite->z, VECTOR_TYPE_16);
+        actFireVector(pSprite, 0, 0, dx, dy, pTarget->z-pSprite->z, kVectorRatBite);
 }
 
 static void thinkSearch(SPRITE *pSprite, XSPRITE *pXSprite)

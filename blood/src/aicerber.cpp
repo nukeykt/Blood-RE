@@ -72,9 +72,9 @@ static void BiteSeqCallback(int, int nXSprite)
     dassert(pXSprite->target >= 0 && pXSprite->target < kMaxSprites, 117);
     SPRITE *pTarget = &sprite[pXSprite->target];
     dz = pTarget->z-pSprite->z;
-    actFireVector(pSprite, 350, -100, dx, dy, dz, VECTOR_TYPE_14);
-    actFireVector(pSprite, -350, 0, dx, dy, dz, VECTOR_TYPE_14);
-    actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_14);
+    actFireVector(pSprite, 350, -100, dx, dy, dz, kVectorCerberusBite);
+    actFireVector(pSprite, -350, 0, dx, dy, dz, kVectorCerberusBite);
+    actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorCerberusBite);
 }
 
 static void BurnSeqCallback(int, int nXSprite)

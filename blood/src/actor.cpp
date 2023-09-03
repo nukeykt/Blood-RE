@@ -5347,7 +5347,7 @@ void actProcessSprites(void)
                 dy = Sin(pSprite->ang)>>16;
                 dx = Cos(pSprite->ang)>>16;
                 gVectorData[20].at9 = pXSprite->at10_0<<9;
-                actFireVector(pSprite, 0, 0, dx, dy, Random2(0x8888), VECTOR_TYPE_20);
+                actFireVector(pSprite, 0, 0, dx, dy, Random2(0x8888), kVectorFireTrap);
             }
             break;
         }
@@ -5409,7 +5409,7 @@ void actProcessSprites(void)
             {
                 PLAYER *pPlayer = &gPlayer[pSprite->type-kDudePlayer1];
                 if (pPlayer->at34e)
-                    func_41250(pPlayer);
+                    playerVoodooTarget(pPlayer);
                 if (pPlayer->at376 && Chance(0x8000))
                     actDamageSprite(nSprite, pSprite, kDamageDrown, 12);
                 if (pPlayer->at87)
@@ -6055,7 +6055,7 @@ void actFireVector(SPRITE *pShooter, int a2, int a3, int a4, int a5, int a6, VEC
             y -= mulscale(a5, 112, 14);
             z -= mulscale(a6, 112<<4, 14);
             int shift = 4;
-            if (vectorType == VECTOR_TYPE_0 && !IsPlayerSprite(pSprite))
+            if (vectorType == kVectorPitchfork && !IsPlayerSprite(pSprite))
                 shift = 3;
             actDamageSprite(nShooter, pSprite, pVectorData->at0, pVectorData->at1<<shift);
             int nXSprite = pSprite->extra;

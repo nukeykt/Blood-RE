@@ -96,7 +96,7 @@ static void TommySeqCallback(int, int nXSprite)
     dx += Random3(5000-gGameOptions.nDifficulty*1000);
     dy += Random3(5000-gGameOptions.nDifficulty*1000);
     dz += Random3(2500-gGameOptions.nDifficulty*500);
-    actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_2);
+    actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorCultistTommy);
     sfxPlay3DSound(pSprite, 4001);
 }
 
@@ -130,7 +130,7 @@ static void ShotSeqCallback(int, int nXSprite)
     dz += Random2(2500-gGameOptions.nDifficulty*500);
     for (int i = 0; i < 8; i++)
     {
-        actFireVector(pSprite, 0, 0, dx+Random3(1000), dy+Random3(1000), dz+Random3(500), VECTOR_TYPE_1);
+        actFireVector(pSprite, 0, 0, dx+Random3(1000), dy+Random3(1000), dz+Random3(500), kVectorShot);
     }
     if (Chance(0x8000))
         sfxPlay3DSound(pSprite, 1001);

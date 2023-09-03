@@ -99,27 +99,27 @@ static void SpidBiteSeqCallback(int, int nXSprite)
                     switch (pSprite->type)
                     {
                     case 213:
-                        actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_17);
+                        actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorSpiderBite);
                         if (IsPlayerSprite(pTarget) && !pPlayer->at31a && powerupCheck(pPlayer, 14) <= 0
                             && Chance(0x4000))
                             powerupActivate(pPlayer, 28);
                         break;
                     case 214:
-                        actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_17);
+                        actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorSpiderBite);
                         if (Chance(0x5000))
                             func_70D30(pXTarget, 4, 16);
                         break;
                     case 215:
-                        actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_17);
+                        actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorSpiderBite);
                         func_70D30(pXTarget, 8, 16);
                         break;
                     case 216:
                     {
-                        actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_17);
+                        actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorSpiderBite);
                         dx += Random2(2000);
                         dy += Random2(2000);
                         dz += Random2(2000);
-                        actFireVector(pSprite, 0, 0, dx, dy, dz, VECTOR_TYPE_17);
+                        actFireVector(pSprite, 0, 0, dx, dy, dz, kVectorSpiderBite);
                         func_70D30(pXTarget, 8, 16);
                         break;
                     }

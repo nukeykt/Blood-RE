@@ -66,7 +66,7 @@ static void HackSeqCallback(int, int nXSprite)
     int height = (pDudeInfo->atb*pSprite->yrepeat);
     DUDEINFO *pDudeInfoT = &dudeInfo[pTarget->type-kDudeBase];
     int height2 = (pDudeInfoT->atb*pTarget->yrepeat);
-    actFireVector(pSprite, 0, 0, Cos(pSprite->ang)>>16, Sin(pSprite->ang)>>16, height-height2, VECTOR_TYPE_11);
+    actFireVector(pSprite, 0, 0, Cos(pSprite->ang)>>16, Sin(pSprite->ang)>>16, height-height2, kVectorButcherHack);
 }
 
 static void PukeSeqCallback(int, int nXSprite)

@@ -140,7 +140,7 @@ struct PLAYER {
     int at33e[3]; // armor
     //int at342;
     //int at346;
-    int voodooTarget; // at34a
+    int playerVoodooTarget; // at34a
     int at34e;
     int at352;
     int at356;
@@ -187,7 +187,7 @@ void playerLandingSound(PLAYER*);
 void packUseItem(PLAYER*, int);
 int packCheckItem(PLAYER*, int);
 
-void func_41250(PLAYER*);
+void playerVoodooTarget(PLAYER*);
 
 int UseAmmo(PLAYER *, int, int);
 

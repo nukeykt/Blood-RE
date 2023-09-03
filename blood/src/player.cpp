@@ -722,7 +722,7 @@ void playerStart(int nPlayer)
     pPlayer->at312 = 0;
     pPlayer->at316 = 0;
     pPlayer->at2f = 0;
-    pPlayer->voodooTarget = -1;
+    pPlayer->playerVoodooTarget = -1;
     pPlayer->at34e = 0;
     pPlayer->at352 = 0;
     pPlayer->at356 = 0;
@@ -2020,7 +2020,7 @@ int UseAmmo(PLAYER *pPlayer, int nAmmoType, int nDec)
     return pPlayer->at181[nAmmoType];
 }
 
-void func_41250(PLAYER *pPlayer)
+void playerVoodooTarget(PLAYER *pPlayer)
 {
     int v4 = pPlayer->at1be.dz;
     int dz = pPlayer->at6f-pPlayer->pSprite->z;
@@ -2034,11 +2034,11 @@ void func_41250(PLAYER *pPlayer)
         int ang = (pPlayer->at352+pPlayer->at356)&2047;
         int dx = Cos(ang) >> 16;
         int dy = Sin(ang) >> 16;
-        actFireVector(pPlayer->pSprite, 0, dz, dx, dy, v4, VECTOR_TYPE_21);
+        actFireVector(pPlayer->pSprite, 0, dz, dx, dy, v4, kVectorVoodoo);
         ang = (pPlayer->at352+2048-pPlayer->at356)&2047;
         dx = Cos(ang) >> 16;
         dy = Sin(ang) >> 16;
-        actFireVector(pPlayer->pSprite, 0, dz, dx, dy, v4, VECTOR_TYPE_21);
+        actFireVector(pPlayer->pSprite, 0, dz, dx, dy, v4, kVectorVoodoo);
         pPlayer->at356 += 5;
     }
     pPlayer->at34e = ClipLow(pPlayer->at34e-1, 0);
