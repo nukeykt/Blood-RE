@@ -282,11 +282,11 @@ void func_43CF8(SPRITE *pSprite, XSPRITE *pXSprite, EVENT a3)
                         int tz = pTarget->z - (pTarget->yrepeat * pDudeInfo->atf) * 4;
                         int dz = divscale(tz - top - 256, nDist, 10);
                         int nMissileType = 316+(pXSprite->at14_0 ? 1 : 0);
-                        double t2;
+                        int t2;
                         if (!pXSprite->at14_0)
-                            t2 = 120 / 10.0;
+                            t2 = 120 / 10;
                         else
-                            t2 = (3*120) / 10.0;
+                            t2 = (120 * 3) / 10;
                         SPRITE *pMissile = actFireMissile(pSprite, 0, z1, dx, dy, dz, nMissileType);
                         if (pMissile)
                         {
