@@ -50,7 +50,7 @@ public:
     void SetCount(int);
     void func_263E0(int);
     void AddKill(SPRITE *pSprite);
-    void func_2641C(void);
+    void CountTotalKills(void);
 	void Clear(void);
     void Draw(void);
 };

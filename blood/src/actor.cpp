@@ -2385,7 +2385,7 @@ void actInit(void)
             ThrowError(1723)("Non-enemy sprite (%d) in the enemy sprite list.\n", nSprite);
         unk[pSprite->type-kDudeBase] = 1;
     }
-    gKillMgr.func_2641C();
+    gKillMgr.CountTotalKills();
     for (int i = 0; i < kDudeMax-kDudeBase; i++)
         for (int j = 0; j < 7; j++)
             dudeInfo[i].at70[j] = mulscale8(DudeDifficulty[gGameOptions.nDifficulty], dudeInfo[i].at54[j]);
