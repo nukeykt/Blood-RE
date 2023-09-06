@@ -852,7 +852,7 @@ void dbLoadMap(char *pPath, long *pX, long *pY, long *pZ, short *pAngle, short *
             xsprite[sprite[i].extra].at1_7 = xsprite[sprite[i].extra].at1_6 << 16;
             if (!char_1A76C8)
             {
-                xsprite[sprite[i].extra].atb_7 = xsprite[sprite[i].extra].atf_5;
+                xsprite[sprite[i].extra].atb_7 |= xsprite[sprite[i].extra].atf_5;
             }
         }
         if ((sprite[i].cstat & kSpriteMask) == kSpriteVoxel)
