@@ -2028,10 +2028,10 @@ void viewProcessSprites(int cX, int cY, int cZ)
         int nShade = pTSprite->shade;
         SECTOR *pSector = &sector[pTSprite->sectnum];
 #if 1
-        XSECTOR *pXSector = pSector->extra ? &xsector[pSector->extra] : NULL;
+        XSECTOR *pXSector = pSector->extra > 0 ? &xsector[pSector->extra] : NULL;
 #else
         XSECTOR* pXSector;
-        if (pSector->extra)
+        if (pSector->extra > 0)
         {
             pXSector = &xsector[pSector->extra];
         }
