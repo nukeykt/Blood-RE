@@ -1114,7 +1114,7 @@ static void PickUp(PLAYER *pPlayer, SPRITE *pSprite)
             if (pXSprite->ate_1)
                 trTriggerSprite(pSprite->index, pXSprite, 32);
         }
-        if (actCheckRespawn(pSprite) == 0)
+        if (!actCheckRespawn(pSprite))
             actPostSprite(pSprite->index, kStatFree);
         pPlayer->at377 = 30;
         if (pPlayer == gMe)

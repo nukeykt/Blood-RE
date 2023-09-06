@@ -2381,7 +2381,7 @@ void actInit(void)
     for (nSprite = headspritestat[6]; nSprite >= 0; nSprite = nextspritestat[nSprite])
     {
         SPRITE *pSprite = &sprite[nSprite];
-        if (pSprite->type < kDudeBase || pSprite->type >= kDudeMax)
+        if (!IsDudeSprite(pSprite))
             ThrowError(1723)("Non-enemy sprite (%d) in the enemy sprite list.\n", nSprite);
         unk[pSprite->type-kDudeBase] = 1;
     }
@@ -2396,7 +2396,7 @@ void actInit(void)
         dassert(nXSprite > 0 && nXSprite < kMaxXSprites, 1753);
         XSPRITE *pXSprite = &xsprite[nXSprite];
         int nType = pSprite->type-kDudeBase;
-        if (pSprite->type < kDudePlayer1 || pSprite->type > kDudePlayer8)
+        if (!IsPlayerSprite(pSprite))
         {
             pSprite->cstat |= 4096+256+1;
             pSprite->clipdist = dudeInfo[nType].ata;
@@ -3221,7 +3221,7 @@ int actDamageSprite(int nSource, SPRITE *pSprite, DAMAGE_TYPE a3, int a4)
     {
     case 6:
     {
-        if (pSprite->type < kDudeBase || pSprite->type >= kDudeMax)
+        if (!IsDudeSprite(pSprite))
         {
             sprintf(buffer, "Bad Dude Failed: initial=%d type=%d %s\n", pSprite->inittype, pSprite->type, (pSprite->flags&kSpriteFlag4) ? "RESPAWN" : "NORMAL");
             ThrowError(3339)(buffer);
@@ -5924,7 +5924,7 @@ BOOL actCheckRespawn(SPRITE *pSprite)
             pSprite->owner = pSprite->statnum;
             actPostSprite(pSprite->index, 8);
             pSprite->flags |= 16;
-            if (pSprite->type < kDudeBase || pSprite->type >= kDudeMax)
+            if (!IsDudeSprite(pSprite))
             {
                 pSprite->cstat &= ~257;
                 pSprite->x = baseSprite[nSprite].x;

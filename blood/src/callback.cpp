@@ -267,7 +267,7 @@ static void Respawn(int nSprite) // 9
         pXSprite->atb_4 = 0;
         pXSprite->at2c_0 = 0;
         pXSprite->atd_2 = 0;
-        if (pSprite->type >= kDudeBase && pSprite->type < kDudeMax)
+        if (IsDudeSprite(pSprite))
         {
             int nType = pSprite->type-kDudeBase;
             pSprite->x = baseSprite[nSprite].x;
