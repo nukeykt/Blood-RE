@@ -549,7 +549,7 @@ void OperateSprite(int nSprite, XSPRITE *pXSprite, EVENT a3)
         }
         break;
     case 402:
-        if (pSprite->statnum == 8)
+        if (pSprite->statnum == kStatRespawn)
             break;
         switch (a3.at2_0)
         {
@@ -563,7 +563,7 @@ void OperateSprite(int nSprite, XSPRITE *pXSprite, EVENT a3)
         }
         break;
     case 401:
-        if (pSprite->statnum == 8)
+        if (pSprite->statnum == kStatRespawn)
             break;
         switch (a3.at2_0)
         {

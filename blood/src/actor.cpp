@@ -5918,7 +5918,7 @@ BOOL actCheckRespawn(SPRITE *pSprite)
             if (pXSprite->atb_4 == 1)
                 nRespawnTime = mulscale16(nRespawnTime, 0xa000);
             pSprite->owner = pSprite->statnum;
-            actPostSprite(pSprite->index, 8);
+            actPostSprite(pSprite->index, kStatRespawn);
             pSprite->flags |= 16;
             if (!IsDudeSprite(pSprite))
             {

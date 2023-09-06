@@ -235,7 +235,7 @@ static void Respawn(int nSprite) // 9
     int nXSprite = pSprite->extra;
     dassert(nXSprite > 0 && nXSprite < kMaxXSprites, 302);
     XSPRITE *pXSprite = &xsprite[pSprite->extra];
-    if (pSprite->statnum != 8 && pSprite->statnum != 4)
+    if (pSprite->statnum != kStatRespawn && pSprite->statnum != 4)
         ThrowError(306)("Sprite %d is not on Respawn or Thing list\n", nSprite);
     if (!(pSprite->flags&kSpriteFlag4))
         ThrowError(309)("Sprite %d does not have the respawn attribute\n", nSprite);
