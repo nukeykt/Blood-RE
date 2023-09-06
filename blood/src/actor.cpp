@@ -5073,15 +5073,11 @@ void actProcessSprites(void)
                         {
                             if (pSprite->type == 431)
                             {
-                                if (Chance(0x4000) || nNextSprite < 0)
-                                {
-                                    if (pSprite2->cstat & 0x10001)
-                                        pXSprite->target = pSprite2->index;
-                                    else
-                                        continue;
-                                }
-                                else
+                                if (!Chance(0x4000) && (nNextSprite >= 0))
                                     continue;
+                                if ((pSprite2->cstat & CLIPMASK0) == 0)
+                                    continue;
+                                pXSprite->target = pSprite2->index;
                             }
                             if (pSprite->owner == -1)
                                 actPropagateSpriteOwner(pSprite, pSprite2);
