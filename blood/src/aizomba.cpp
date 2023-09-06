@@ -213,7 +213,7 @@ static void myThinkTarget(SPRITE *pSprite, XSPRITE *pXSprite)
     for (int p = connecthead; p >= 0; p = connectpoint2[p])
     {
         PLAYER *pPlayer = &gPlayer[p];
-        int nOwner = (pSprite->owner & 0x1000) ? (pSprite->owner&0xfff) : -1;
+        int nOwner = (pSprite->owner & kMaxSprites) ? (pSprite->owner&(kMaxSprites-1)) : -1;
         if (nOwner == pPlayer->at5b || pPlayer->pXSprite->health == 0 || powerupCheck(pPlayer, 13) > 0)
             continue;
         int x = pPlayer->pSprite->x;

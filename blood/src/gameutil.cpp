@@ -624,10 +624,10 @@ retry:
                 gHitInfo.hitwall = -1;
                 gHitInfo.hitsprite = -1;
                 int nLink = sprite[nSprite].owner;
-                x1 = gHitInfo.hitx + sprite[nLink & 0xfff].x - sprite[nSprite].x;
-                y1 = gHitInfo.hity + sprite[nLink & 0xfff].y - sprite[nSprite].y;
-                z1 = gHitInfo.hitz + sprite[nLink & 0xfff].z - sprite[nSprite].z;
-                nSector = sprite[nLink & 0xfff].sectnum;
+                x1 = gHitInfo.hitx + sprite[nLink & (kMaxSprites-1)].x - sprite[nSprite].x;
+                y1 = gHitInfo.hity + sprite[nLink & (kMaxSprites-1)].y - sprite[nSprite].y;
+                z1 = gHitInfo.hitz + sprite[nLink & (kMaxSprites-1)].z - sprite[nSprite].z;
+                nSector = sprite[nLink & (kMaxSprites-1)].sectnum;
                 hitscan(x1, y1, z1, nSector, dx, dy, dz<<4, &gHitInfo.hitsect, &gHitInfo.hitwall, &gHitInfo.hitsprite,
                     &gHitInfo.hitx, &gHitInfo.hity, &gHitInfo.hitz, CLIPMASK1);
                 goto retry;
@@ -643,10 +643,10 @@ retry:
                 gHitInfo.hitwall = -1;
                 gHitInfo.hitsprite = -1;
                 int nLink = sprite[nSprite].owner;
-                x1 = gHitInfo.hitx + sprite[nLink & 0xfff].x - sprite[nSprite].x;
-                y1 = gHitInfo.hity + sprite[nLink & 0xfff].y - sprite[nSprite].y;
-                z1 = gHitInfo.hitz + sprite[nLink & 0xfff].z - sprite[nSprite].z;
-                nSector = sprite[nLink & 0xfff].sectnum;
+                x1 = gHitInfo.hitx + sprite[nLink & (kMaxSprites-1)].x - sprite[nSprite].x;
+                y1 = gHitInfo.hity + sprite[nLink & (kMaxSprites-1)].y - sprite[nSprite].y;
+                z1 = gHitInfo.hitz + sprite[nLink & (kMaxSprites-1)].z - sprite[nSprite].z;
+                nSector = sprite[nLink & (kMaxSprites-1)].sectnum;
                 hitscan(x1, y1, z1, nSector, dx, dy, dz<<4, &gHitInfo.hitsect, &gHitInfo.hitwall, &gHitInfo.hitsprite,
                     &gHitInfo.hitx, &gHitInfo.hity, &gHitInfo.hitz, CLIPMASK1);
                 goto retry;
@@ -679,7 +679,7 @@ void GetZRange(SPRITE *pSprite, long *ceilZ, long *ceilHit, long *floorZ, long *
         if (nSprite >= 0)
         {
             int nLink = sprite[nSprite].owner;
-            int t = nLink & 0xfff;
+            int t = nLink & (kMaxSprites-1);
             getzrange(pSprite->x+sprite[t].x-sprite[nSprite].x, pSprite->y+sprite[t].y-sprite[nSprite].y,
                 pSprite->z+sprite[t].z-sprite[nSprite].z, sprite[t].sectnum, &nTemp1, &nTemp2, floorZ, floorHit,
                 nDist, nMask);
@@ -695,7 +695,7 @@ void GetZRange(SPRITE *pSprite, long *ceilZ, long *ceilHit, long *floorZ, long *
         if (nSprite >= 0)
         {
             int nLink = sprite[nSprite].owner;
-            int t = nLink & 0xfff;
+            int t = nLink & (kMaxSprites-1);
             getzrange(pSprite->x+sprite[t].x-sprite[nSprite].x, pSprite->y+sprite[t].y-sprite[nSprite].y,
                 pSprite->z+sprite[t].z-sprite[nSprite].z, sprite[t].sectnum, ceilZ, ceilHit, &nTemp1, &nTemp2,
                 nDist, nMask);
@@ -724,7 +724,7 @@ void GetZRangeAtXYZ(long x, long y, long z, int nSector, long *ceilZ, long *ceil
         if (nSprite >= 0)
         {
             int nLink = sprite[nSprite].owner;
-            int t = nLink & 0xfff;
+            int t = nLink & (kMaxSprites-1);
             getzrange(x+sprite[t].x-sprite[nSprite].x, y+sprite[t].y-sprite[nSprite].y,
                 z+sprite[t].z-sprite[nSprite].z, sprite[t].sectnum, &nTemp1, &nTemp2, floorZ, floorHit,
                 nDist, nMask);
@@ -740,7 +740,7 @@ void GetZRangeAtXYZ(long x, long y, long z, int nSector, long *ceilZ, long *ceil
         if (nSprite >= 0)
         {
             int nLink = sprite[nSprite].owner;
-            int t = nLink & 0xfff;
+            int t = nLink & (kMaxSprites-1);
             getzrange(x+sprite[t].x-sprite[nSprite].x, y+sprite[t].y-sprite[nSprite].y,
                 z+sprite[t].z-sprite[nSprite].z, sprite[t].sectnum, ceilZ, ceilHit, &nTemp1, &nTemp2,
                 nDist, nMask);
@@ -845,7 +845,7 @@ BOOL cansee(long x1, long y1, long z1, short sect1, long x2, long y2, long z2, s
                     if (nSprite < 0)
                         return 0;
                     int nLink = sprite[nSprite].owner;
-                    int t = nLink & 0xfff;
+                    int t = nLink & (kMaxSprites-1);
                     newsector = sprite[t].sectnum;
                 }
                 if (z >= floorz)
@@ -854,7 +854,7 @@ BOOL cansee(long x1, long y1, long z1, short sect1, long x2, long y2, long z2, s
                     if (nSprite < 0)
                         return 0;
                     int nLink = sprite[nSprite].owner;
-                    int t = nLink & 0xfff;
+                    int t = nLink & (kMaxSprites-1);
                     newsector = sprite[t].sectnum;
                 }
             }
