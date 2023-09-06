@@ -545,7 +545,7 @@ static void func_768E8(int nSprite) // 18
     evPost(nSprite, 3, 6, CALLBACK_ID_18);
 }
 
-static void func_769B4(int nSprite) // 19
+static void func_769B4(int nSprite) // 20
 {
     SPRITE *pSprite = &sprite[nSprite];
     if (pSprite->statnum == 4 && pSprite->type == 431 && !(pSprite->flags&kSpriteFlag5))
