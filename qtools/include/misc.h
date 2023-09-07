@@ -28,6 +28,29 @@ void ChangeExtension(char *name, char *ext);
 
 ulong qrand(void);
 
+//#define RAND_DBG // uncomment to expose rand() for debugging (qtools/blood must be clean and recompiled)
+#ifdef RAND_DBG
+
+#define rand rando
+#define srand srando
+#define wsrand srand
+#define wrand rand
+
+extern ulong wrandomseed;
+
+// C-ify'd Watcom's rand() function
+inline int wrand(void)
+{
+    wrandomseed = 1103515245 * wrandomseed + 12345;
+    return (wrandomseed >> 16) & 0x7FFF;
+}
+
+inline void wsrand(int seed)
+{
+    wrandomseed = seed;
+}
+#endif
+
 ulong func_A8B30(void);
 ulong func_A8B50(void);
 

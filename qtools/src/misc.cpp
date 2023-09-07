@@ -151,6 +151,10 @@ void ChangeExtension(char *name, char *ext)
 
 ulong randSeed = 1;
 
+#ifdef RAND_DBG
+ulong wrandomseed;
+#endif
+
 ulong randStep(ulong seed);
 
 #pragma aux randStep = \
