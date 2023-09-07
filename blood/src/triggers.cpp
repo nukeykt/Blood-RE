@@ -880,7 +880,7 @@ static void TranslateSector(int nSector, int a2, int a3, int a4, int a5, int a6,
             y = baseWall[nWall].y;
             if (vbp)
                 RotatePoint(&x, &y, vbp, a4, a5);
-            DragPoint(nWall, x+(vc-a4), y+(v8-a5));
+            DragPoint(nWall, x+vc-a4, y+v8-a5);
         }
     }
     else
@@ -1928,6 +1928,25 @@ void trProcessBusy(void)
 
 static void InitGenerator(int);
 
+inline void setBaseSprite(int nSprite)
+{
+    baseSprite[nSprite].x = sprite[nSprite].x;
+    baseSprite[nSprite].y = sprite[nSprite].y;
+    baseSprite[nSprite].z = sprite[nSprite].z;
+}
+
+inline void setBaseWall(int nWall)
+{
+    baseWall[nWall].x = wall[nWall].x;
+    baseWall[nWall].y = wall[nWall].y;
+}
+
+inline void setBaseSector(int nSector)
+{
+    baseFloor[nSector] = sector[nSector].floorz;
+    baseCeil[nSector] = sector[nSector].ceilingz;
+}
+
 void trInit(void)
 {
     int j;
@@ -1935,17 +1954,14 @@ void trInit(void)
     gBusyCount = 0;
     for (nWall = 0; nWall < numwalls; nWall++)
     {
-        baseWall[nWall].x = wall[nWall].x;
-        baseWall[nWall].y = wall[nWall].y;
+        setBaseWall(nWall);
     }
     for (nSprite = 0; nSprite < kMaxSprites; nSprite++)
     {
         if (sprite[nSprite].statnum < kStatFree)
         {
             sprite[nSprite].inittype = sprite[nSprite].type;
-            baseSprite[nSprite].x = sprite[nSprite].x;
-            baseSprite[nSprite].y = sprite[nSprite].y;
-            baseSprite[nSprite].z = sprite[nSprite].z;
+            setBaseSprite(nSprite);
         }
         else
             sprite[nSprite].inittype = -1;
@@ -1965,8 +1981,7 @@ void trInit(void)
     for (nSector = 0; nSector < numsectors; nSector++)
     {
         SECTOR *pSector = &sector[nSector];
-        baseFloor[nSector] = pSector->floorz;
-        baseCeil[nSector] = pSector->ceilingz;
+        setBaseSector(nSector);
         int nXSector = pSector->extra;
         if (nXSector > 0)
         {
@@ -1982,47 +1997,31 @@ void trInit(void)
                 pXSector->at16_5 = 1;
                 evPost(nSector, 6, 0, CALLBACK_ID_12);
                 break;
-            case 600:
-            case 602:
-                ZTranslateSector(nSector, pXSector, pXSector->at1_7, 1);
-                break;
             case 614:
             case 616:
-                pSprite1 = &sprite[pXSector->at2c_0];
                 pSprite2 = &sprite[pXSector->at2e_0];
-                TranslateSector(nSector, 0, -65536, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, pSprite1->ang, pSprite2->x, pSprite2->y, pSprite2->ang, pSector->type == 616);
-                for (j = 0; j < pSector->wallnum; j++)
-                {
-                    int nWall = pSector->wallptr+j;
-                    baseWall[nWall].x = wall[nWall].x;
-                    baseWall[nWall].y = wall[nWall].y;
-                }
-                for (nSprite = headspritesect[nSector]; nSprite >= 0; nSprite = nextspritesect[nSprite])
-                {
-                    baseSprite[nSprite].x = sprite[nSprite].x;
-                    baseSprite[nSprite].y = sprite[nSprite].y;
-                    baseSprite[nSprite].z = sprite[nSprite].z;
-                }
-                TranslateSector(nSector, 0, pXSector->at1_7, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, pSprite1->ang, pSprite2->x, pSprite2->y, pSprite2->ang, pSector->type == 616);
-                ZTranslateSector(nSector, pXSector, pXSector->at1_7, 1);
-                break;
             case 615:
             case 617:
                 pSprite1 = &sprite[pXSector->at2c_0];
-                TranslateSector(nSector, 0, -65536, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, 0, pSprite1->x, pSprite1->y, pSprite1->ang, pSector->type == 617);
+                if (pSprite2)
+                    TranslateSector(nSector, 0, -65536, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, pSprite1->ang, pSprite2->x, pSprite2->y, pSprite2->ang, pSector->type == 616);
+                else
+                    TranslateSector(nSector, 0, -65536, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, 0, pSprite1->x, pSprite1->y, pSprite1->ang, pSector->type == 617);
                 for (j = 0; j < pSector->wallnum; j++)
                 {
                     int nWall = pSector->wallptr+j;
-                    baseWall[nWall].x = wall[nWall].x;
-                    baseWall[nWall].y = wall[nWall].y;
+                    setBaseWall(nWall);
                 }
                 for (nSprite = headspritesect[nSector]; nSprite >= 0; nSprite = nextspritesect[nSprite])
                 {
-                    baseSprite[nSprite].x = sprite[nSprite].x;
-                    baseSprite[nSprite].y = sprite[nSprite].y;
-                    baseSprite[nSprite].z = sprite[nSprite].z;
+                    setBaseSprite(nSprite);
                 }
-                TranslateSector(nSector, 0, pXSector->at1_7, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, 0, pSprite1->x, pSprite1->y, pSprite1->ang, pSector->type == 617);
+                if (pSprite2)
+                    TranslateSector(nSector, 0, pXSector->at1_7, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, pSprite1->ang, pSprite2->x, pSprite2->y, pSprite2->ang, pSector->type == 616);
+                else
+                    TranslateSector(nSector, 0, pXSector->at1_7, pSprite1->x, pSprite1->y, pSprite1->x, pSprite1->y, 0, pSprite1->x, pSprite1->y, pSprite1->ang, pSector->type == 617);
+            case 600:
+            case 602:
                 ZTranslateSector(nSector, pXSector, pXSector->at1_7, 1);
                 break;
             case 612:
