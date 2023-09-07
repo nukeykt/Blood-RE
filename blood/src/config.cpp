@@ -457,6 +457,8 @@ void CONFIG_SetupMouse( int32 scripthandle )
    SCRIPT_GetNumber( scripthandle, "Controls","MouseAiming",&gMouseAiming);
    SCRIPT_GetNumber( scripthandle, "Controls","MouseAimingFlipped",&var);
    gMouseAimingFlipped = var;
+   if (ControllerType == controltype_keyboardandexternal) // always flip for bmouse
+      gMouseAimingFlipped = !gMouseAimingFlipped;
    }
 
 /*
