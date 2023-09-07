@@ -180,16 +180,16 @@ static void func_71370(int, int nXSprite)
     if (IsPlayerSprite(pTarget) && pDudeExtraE->at4 < 10)
     {
         if (nDist < 0x1a00 && nDist > 0x1400 && klabs(pSprite->ang-nAngle) < pDudeInfo->at1b)
-            pSpawn = func_36878(pSprite, 214, pSprite->clipdist, 0);
+            pSpawn = actSpawnDude(pSprite, 214, pSprite->clipdist, 0);
         else if (nDist < 0x1400 && nDist > 0xc00 && klabs(pSprite->ang-nAngle) < pDudeInfo->at1b)
-            pSpawn = func_36878(pSprite, 213, pSprite->clipdist, 0);
+            pSpawn = actSpawnDude(pSprite, 213, pSprite->clipdist, 0);
         else if (nDist < 0xc00 && klabs(pSprite->ang - nAngle) < pDudeInfo->at1b)
-            pSpawn = func_36878(pSprite, 213, pSprite->clipdist, 0);
+            pSpawn = actSpawnDude(pSprite, 213, pSprite->clipdist, 0);
         if (pSpawn)
         {
             pDudeExtraE->at4++;
             pSpawn->owner = nSprite;
-            gKillMgr.func_263E0(1);
+            gKillMgr.AddCount(1);
         }
     }
 }

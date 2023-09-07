@@ -447,7 +447,7 @@ void seqProcess(int a1)
                             int nSprite = xsprite[activeList[i].xindex].reference;
                             dassert(nSprite >= 0 && nSprite < kMaxSprites, 618);
                             evKill(nSprite, 3);
-                            if ((sprite[nSprite].flags & kSpriteFlag4) && sprite[nSprite].inittype >= 200 && sprite[nSprite].inittype < 254)
+                            if ((sprite[nSprite].flags & kSpriteFlag4) && sprite[nSprite].inittype >= kDudeBase && sprite[nSprite].inittype < kDudeMax)
                                 evPost(nSprite, 3, gGameOptions.nMonsterRespawnTime, CALLBACK_ID_9);
                             else
                                 DeleteSprite(nSprite);

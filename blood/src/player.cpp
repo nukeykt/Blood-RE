@@ -1458,7 +1458,7 @@ static void ProcessInput(PLAYER *pPlayer)
             pPlayer->at372 = ClipLow(pPlayer->at372-4*(6-gGameOptions.nDifficulty), 0);
         if (pPlayer->at372 <= 0 && pPlayer->at376)
         {
-            SPRITE *pSprite2 = func_36878(pPlayer->pSprite, 212, pPlayer->pSprite->clipdist<<1, 0);
+            SPRITE *pSprite2 = actSpawnDude(pPlayer->pSprite, 212, pPlayer->pSprite->clipdist<<1, 0);
             pSprite2->ang = (pPlayer->pSprite->ang+1024)&2047;
             int nSprite = pPlayer->pSprite->index;
             int x = Cos(pPlayer->pSprite->ang)>>16;

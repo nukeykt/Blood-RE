@@ -2387,8 +2387,10 @@ void actInit(void)
     }
     gKillMgr.CountTotalKills();
     for (int i = 0; i < kDudeMax-kDudeBase; i++)
+    {
         for (int j = 0; j < 7; j++)
             dudeInfo[i].at70[j] = mulscale8(DudeDifficulty[gGameOptions.nDifficulty], dudeInfo[i].at54[j]);
+    }
     for (nSprite = headspritestat[6]; nSprite >= 0; nSprite = nextspritestat[nSprite])
     {
         SPRITE *pSprite = &sprite[nSprite];
@@ -5549,7 +5551,7 @@ SPRITE *actSpawnSprite(int nSector, int x, int y, int z, int nStat, BOOL a6)
     return pSprite;
 }
 
-SPRITE *func_36878(SPRITE *pSource, short nType, int a3, int a4)
+SPRITE *actSpawnDude(SPRITE *pSource, short nType, int a3, int a4)
 {
     SPRITE *pSprite2 = actSpawnSprite(pSource, 6);
     if (!pSprite2)

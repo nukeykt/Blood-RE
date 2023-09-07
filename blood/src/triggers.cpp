@@ -227,7 +227,7 @@ unsigned int GetSourceBusy(EVENT a1)
     return 0;
 }
 
-void func_43CF8(SPRITE *pSprite, XSPRITE *pXSprite, EVENT a3)
+void LifeLeechOperate(SPRITE *pSprite, XSPRITE *pXSprite, EVENT a3)
 {
     switch (a3.at2_0)
     {
@@ -488,11 +488,11 @@ void OperateSprite(int nSprite, XSPRITE *pXSprite, EVENT a3)
     case 18:
         if (gGameOptions.nMonsterSettings && pXSprite->at10_0 >= kDudeBase && pXSprite->at10_0 < kDudeMax)
         {
-            SPRITE *pSpawn = func_36878(pSprite, pXSprite->at10_0, -1, 0);
+            SPRITE *pSpawn = actSpawnDude(pSprite, pXSprite->at10_0, -1, 0);
             if (pSpawn)
             {
                 XSPRITE *pXSpawn = &xsprite[pSpawn->extra];
-                gKillMgr.func_263E0(1);
+                gKillMgr.AddCount(1);
                 switch (pXSprite->at10_0)
                 {
                 case 240:
@@ -585,7 +585,7 @@ void OperateSprite(int nSprite, XSPRITE *pXSprite, EVENT a3)
         }
         break;
     case 431:
-        func_43CF8(pSprite, pXSprite, a3);
+        LifeLeechOperate(pSprite, pXSprite, a3);
         break;
     case 700:
     case 701:

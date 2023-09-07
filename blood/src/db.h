@@ -245,6 +245,7 @@ enum {
     kThingMax = 433,
 
     kMissileBase = 300,
+    kMissile300 = kMissileBase,
     kMissile301,
     kMissile302,
     kMissile303,
