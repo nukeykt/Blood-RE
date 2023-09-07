@@ -146,8 +146,8 @@ struct XSECTOR {
     signed   int at20_0 : 32;
     signed   int at24_0 : 32;
     signed   int at28_0 : 32;
-    signed   int at2c_0 : 16;
-    signed   int at2e_0 : 16;
+    unsigned int at2c_0 : 16;
+    unsigned int at2e_0 : 16;
     unsigned int at30_0 : 1; // Crush
     unsigned int at30_1 : 8; // Ceiling x panning frac
     unsigned int at31_1 : 8; // Ceiling y panning frac
