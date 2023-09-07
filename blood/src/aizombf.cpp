@@ -56,7 +56,7 @@ static void HackSeqCallback(int, int nXSprite)
         return;
     XSPRITE *pXSprite = &xsprite[nXSprite];
     int nSprite = pXSprite->reference;
-    if (nXSprite < 0 || nXSprite >= kMaxSprites)
+    if (nSprite < 0 || nSprite >= kMaxSprites)
         return;
     SPRITE *pSprite = &sprite[nSprite];
     if (pSprite->type != 204)
