@@ -595,7 +595,7 @@ void PropagateMarkerReferences(void)
     int nNextSprite;
     int nOwner;
     int nXSector;
-    for (int nSprite = headspritestat[19]; nSprite != -1; nSprite = nNextSprite)
+    for (int nSprite = headspritestat[10]; nSprite != -1; nSprite = nNextSprite)
     {
         nNextSprite = nextspritestat[nSprite];
         switch (sprite[nSprite].type)

@@ -95,7 +95,7 @@ static BOOL SetSpriteState(int nSprite, XSPRITE *pXSprite, int nState)
     pXSprite->at1_7 = nState<<16;
     pXSprite->at1_6 = nState;
     evKill(nSprite, 3);
-    if ((sprite[nSprite].flags & kSpriteFlag4) != 0 && sprite[nSprite].type >= kDudeBase && sprite[nSprite].type < kDudeMax)
+    if ((sprite[nSprite].flags & kSpriteFlag4) != 0 && sprite[nSprite].inittype >= kDudeBase && sprite[nSprite].inittype < kDudeMax)
     {
         pXSprite->atb_4 = 3;
         evPost(nSprite, 3, gGameOptions.nMonsterRespawnTime, CALLBACK_ID_9);
