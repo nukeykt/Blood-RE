@@ -592,29 +592,18 @@ void dbInit(void)
 
 void PropagateMarkerReferences(void)
 {
+    int nSprite;
     int nNextSprite;
     int nOwner;
     int nXSector;
-    for (int nSprite = headspritestat[19]; nSprite != -1; nSprite = nNextSprite)
+    for (nSprite = headspritestat[10]; nSprite != -1; nSprite = nNextSprite)
     {
         nNextSprite = nextspritestat[nSprite];
         switch (sprite[nSprite].type)
         {
-        case 8:
-        {
-            nOwner = sprite[nSprite].owner;
-            if (nOwner >= 0 && nOwner < numsectors)
-            {
-                nXSector = sector[nOwner].extra;
-                if (nXSector > 0 && nXSector < kMaxXSectors)
-                {
-                    xsector[nXSector].at2c_0 = nSprite;
-                    continue;
-                }
-            }
-            break;
-        }
         case 3:
+        case 5:
+        case 8:
         {
             nOwner = sprite[nSprite].owner;
             if (nOwner >= 0 && nOwner < numsectors)
@@ -637,20 +626,6 @@ void PropagateMarkerReferences(void)
                 if (nXSector > 0 && nXSector < kMaxXSectors)
                 {
                     xsector[nXSector].at2e_0 = nSprite;
-                    continue;
-                }
-            }
-            break;
-        }
-        case 5:
-        {
-            nOwner = sprite[nSprite].owner;
-            if (nOwner >= 0 && nOwner < numsectors)
-            {
-                nXSector = sector[nOwner].extra;
-                if (nXSector > 0 && nXSector < kMaxXSectors)
-                {
-                    xsector[nXSector].at2c_0 = nSprite;
                     continue;
                 }
             }
